@@ -16,6 +16,53 @@
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* Accent Themes - Light Mode */
+[data-theme="gold"] { 
+    --accent: #D4AF37; 
+    --bg-color: #FAFAFA;
+    --text-main: #222222;
+    --primary: #1A1A1A;
+    --primary-inv: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --input-bg: #F4F4F4;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --border: #EEEEEE;
+}
+[data-theme="sapphire"] { 
+    --accent: #4169E1; 
+    --bg-color: #F0F4F8;
+    --text-main: #102A43;
+    --primary: #0B192C;
+    --primary-inv: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --input-bg: #E1E8F0;
+    --nav-bg: rgba(240, 244, 248, 0.85);
+    --border: #D9E2EC;
+}
+[data-theme="emerald"] { 
+    --accent: #2E8B57; 
+    --bg-color: #F0F8F1;
+    --text-main: #093016;
+    --primary: #051A0B;
+    --primary-inv: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --input-bg: #E1F0E5;
+    --nav-bg: rgba(240, 248, 241, 0.85);
+    --border: #D1E6D8;
+}
+[data-theme="ruby"] { 
+    --accent: #DC143C; 
+    --bg-color: #FFF0F2;
+    --text-main: #4A0E17;
+    --primary: #2D070D;
+    --primary-inv: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --input-bg: #FDE0E4;
+    --nav-bg: rgba(255, 240, 242, 0.85);
+    --border: #F7D4DA;
+}
+
+/* Base Dark Mode */
 body.dark-mode {
     --primary: #FFFFFF;
     --primary-inv: #1A1A1A;
@@ -29,6 +76,48 @@ body.dark-mode {
     --border: #333333;
     --footer-bg: #111111;
     --footer-text: #EEEEEE;
+}
+
+/* Accent Themes - Dark Mode */
+[data-theme="gold"] body.dark-mode {
+    --bg-color: #121212;
+    --text-main: #EEEEEE;
+    --primary: #FFFFFF;
+    --primary-inv: #1A1A1A;
+    --card-bg: #1A1A1A;
+    --input-bg: #222222;
+    --nav-bg: rgba(18, 18, 18, 0.85);
+    --border: #333333;
+}
+[data-theme="sapphire"] body.dark-mode {
+    --bg-color: #0B192C;
+    --text-main: #F0F4F8;
+    --primary: #FFFFFF;
+    --primary-inv: #0B192C;
+    --card-bg: #102A43;
+    --input-bg: #1A3E5F;
+    --nav-bg: rgba(11, 25, 44, 0.85);
+    --border: #243B53;
+}
+[data-theme="emerald"] body.dark-mode {
+    --bg-color: #051A0B;
+    --text-main: #F0F8F1;
+    --primary: #FFFFFF;
+    --primary-inv: #051A0B;
+    --card-bg: #093016;
+    --input-bg: #0F4C23;
+    --nav-bg: rgba(5, 26, 11, 0.85);
+    --border: #145E2B;
+}
+[data-theme="ruby"] body.dark-mode {
+    --bg-color: #2D070D;
+    --text-main: #FFF0F2;
+    --primary: #FFFFFF;
+    --primary-inv: #2D070D;
+    --card-bg: #4A0E17;
+    --input-bg: #741725;
+    --nav-bg: rgba(45, 7, 13, 0.85);
+    --border: #8C1C2C;
 }
 
 * {
@@ -108,6 +197,34 @@ body {
 .nav-links {
     display: flex;
     gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.theme-colors {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    padding-left: 20px;
+    border-left: 1px solid var(--border);
+}
+
+.theme-selector {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--card-bg);
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition);
+}
+
+.theme-selector:focus {
+    border-color: var(--primary);
 }
 
 .nav-btn {

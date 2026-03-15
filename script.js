@@ -61,9 +61,13 @@ const closeModalBtn = document.getElementById('close-modal');
 const modalMainImage = document.getElementById('modal-main-image');
 const modalThumbnails = document.getElementById('modal-thumbnails');
 
+// Theme Selector dropdown
+const themeSelector = document.getElementById('theme-selector');
+
 // Initialization
 function init() {
     setupThemeToggle();
+    setupColorTheme();
     renderGrid(clothingItems);
     setupEventListeners();
     setupImageUploadPreview();
@@ -99,6 +103,30 @@ function updateThemeIcon(btn, isDark) {
         btn.innerHTML = '<i class="fas fa-sun"></i>';
     } else {
         btn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+}
+
+function setupColorTheme() {
+    // Check saved color theme
+    const savedColor = localStorage.getItem('colorTheme') || 'gold';
+    applyColorTheme(savedColor);
+
+    if (themeSelector) {
+        themeSelector.addEventListener('change', (e) => {
+            const selectedColor = e.target.value;
+            applyColorTheme(selectedColor);
+            localStorage.setItem('colorTheme', selectedColor);
+        });
+    }
+}
+
+function applyColorTheme(colorName) {
+    // Set the data attribute for CSS mapping
+    document.documentElement.setAttribute('data-theme', colorName);
+    
+    // Update the dropdown value to match
+    if (themeSelector) {
+        themeSelector.value = colorName;
     }
 }
 
