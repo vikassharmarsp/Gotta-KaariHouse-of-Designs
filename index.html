@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotta Kaari House of Designs</title>
+    <meta name="description" content="Discover premium fashion and elegant designs at Gotta Kaari House of Designs.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="logo-text">GK</span>
+                <h1 class="firm-name">Gotta Kaari <span>House of Designs</span></h1>
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn active" id="btn-home">Collection</button>
+                <button class="nav-btn" id="btn-upload">Upload Item</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="app-container">
+        <!-- Home / Display View -->
+        <section id="view-home" class="view section-active">
+            <header class="collection-header">
+                <h2>Our Collection</h2>
+                <p>Curated fashion for the modern aesthetic.</p>
+            </header>
+            
+            <div class="filters-container">
+                <div class="filter-group category-filters" id="category-filters">
+                    <button class="filter-btn active" data-category="All">All</button>
+                    <button class="filter-btn" data-category="Dresses">Dresses</button>
+                    <button class="filter-btn" data-category="Suits">Suits</button>
+                    <button class="filter-btn" data-category="Accessories">Accessories</button>
+                    <button class="filter-btn" data-category="Casual">Casual</button>
+                </div>
+                <div class="filter-group price-filter">
+                    <select id="price-sort">
+                        <option value="default">Sort: Newest</option>
+                        <option value="low">Price: Low to High</option>
+                        <option value="high">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-container" id="clothing-grid">
+                <!-- Items injected via JS -->
+            </div>
+        </section>
+
+        <!-- Upload View -->
+        <section id="view-upload" class="view section-hidden">
+            <div class="upload-container">
+                <h2>Add New Design</h2>
+                <p>Upload a new clothing item to the collection.</p>
+                
+                <form id="upload-form" class="modern-form">
+                    <div class="form-group image-upload-group">
+                        <label for="item-image" class="image-upload-label">
+                            <div class="upload-icon">+</div>
+                            <span>Click to upload image</span>
+                        </label>
+                        <input type="file" id="item-image" accept="image/*" required hidden>
+                        <div id="image-preview" class="image-preview"></div>
+                    </div>
+                    
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="item-name">Design Name</label>
+                            <input type="text" id="item-name" required placeholder="e.g. Midnight Silk Dress">
+                        </div>
+                        <div class="form-group">
+                            <label for="item-price">Price ($)</label>
+                            <input type="number" id="item-price" min="0" step="0.01" required placeholder="e.g. 199.99">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="item-category">Category</label>
+                        <select id="item-category" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="Dresses">Dresses</option>
+                            <option value="Suits">Suits</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Casual">Casual</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="item-desc">Short Description</label>
+                        <textarea id="item-desc" rows="3" required placeholder="Describe the design, material, and fit..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn">Add to Collection</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Image Gallery Modal -->
+        <div id="item-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" id="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-gallery">
+                        <div class="main-image-container">
+                            <img id="modal-main-image" src="" alt="Main Item Image">
+                        </div>
+                        <div class="modal-thumbnails" id="modal-thumbnails">
+                            <!-- Thumbnails injected via JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section brand-section">
+                <div class="brand footer-brand">
+                    <span class="logo-text">GK</span>
+                    <h2 class="firm-name">Gotta Kaari <span>House of Designs</span></h2>
+                </div>
+                <p>Curating premium fashion aesthetics for the modern individual.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-link" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section contact-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> hello@gottakaari.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sat: 10:00 AM - 8:00 PM</li>
+                </ul>
+            </div>
+
+            <div class="footer-section location-section">
+                <h3>Our Boutique</h3>
+                <p>123 Fashion Avenue<br>Design District<br>New York, NY 10012</p>
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="directions-btn"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Gotta Kaari House of Designs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
