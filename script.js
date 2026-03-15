@@ -63,9 +63,43 @@ const modalThumbnails = document.getElementById('modal-thumbnails');
 
 // Initialization
 function init() {
+    setupThemeToggle();
     renderGrid(clothingItems);
     setupEventListeners();
     setupImageUploadPreview();
+}
+
+function setupThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) return;
+    
+    // Check saved preference
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        updateThemeIcon(themeToggle, true);
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        const currentlyDark = document.body.classList.contains('dark-mode');
+        if (currentlyDark) {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'false');
+            updateThemeIcon(themeToggle, false);
+        } else {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'true');
+            updateThemeIcon(themeToggle, true);
+        }
+    });
+}
+
+function updateThemeIcon(btn, isDark) {
+    if (isDark) {
+        btn.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        btn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
 }
 
 // Render the grid based on data
